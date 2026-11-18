@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ParkSmart - Smart Parking Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        /* GENERAL CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            color: #1e293b;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .box {
+            background: white;
+            width: 350px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 11px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        a {
+            color: #2563eb;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* DASHBOARD */
+
+        .dashboard {
+            padding: 25px;
+            min-height: 400px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #ddd;
+        }
+
+        .parking {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .slot {
+            padding: 22px;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .available {
+            background: #16a34a;
+        }
+
+        .occupied {
+            background: #dc2626;
+        }
+
+        .release-btn {
+            background: #dc2626;
+            width: auto;
+            padding: 8px 15px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #14213d;
+            color: white;
+            padding: 35px 25px 15px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .footer h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            color: #38bdf8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #475569;
+            margin-top: 30px;
+            padding-top: 15px;
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media(max-width: 650px) {
+
+            .parking {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .box {
+                width: auto;
+                margin: 20px;
+            }
+
+            .dashboard {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>ParkSmart</h1>
+        <p>Smart Parking Management System</p>
+    </header>
+
+
+    <!-- LOGIN PAGE -->
+
+    <div class="box" id="login">
+
+        <h2>Login</h2>
+
+        <input type="text" id="username"
+               placeholder="Enter Username">
+
+        <input type="password" id="password"
+               placeholder="Enter Password">
+
+        <button onclick="loginUser()">Login</button>
+
+        <p style="text-align:center">
+            New User?
+            <a onclick="showRegister()">Register</a>
+        </p>
+
+        <p id="loginMsg"></p>
+
+    </div>
+
+
+    <!-- REGISTRATION PAGE -->
+
+    <div class="box hidden" id="register">
+
+        <h2>Create Account</h2>
+
+        <input type="text" id="name"
+               placeholder="Full Name">
+
+        <input type="text" id="newUser"
+               placeholder="Username">
+
+        <input type="password" id="newPass"
+               placeholder="Password">
+
+        <input type="text" id="vehicle"
+               placeholder="Vehicle Number">
+
+        <button onclick="registerUser()">Register</button>
+
+        <p style="text-align:center">
+            Already have an account?
+            <a onclick="showLogin()">Login</a>
+        </p>
+
+        <p id="registerMsg"></p>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard hidden" id="dashboard">
+
+        <h2>Welcome to ParkSmart</h2>
+
+        <p style="text-align:center">
+            Manage your parking spaces easily.
+        </p>
+
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Slots</h3>
+                <h2 id="total">8</h2>
+            </div>
+
+            <div class="card">
+                <h3>Available</h3>
+                <h2 id="available">8</h2>
+            </div>
+
+            <div class="card">
+                <h3>Occupied</h3>
+                <h2 id="occupied">0</h2>
+            </div>
+
+        </div>
+
+
+        <!-- PARKING AREA -->
+
+        <h2>Parking Slots</h2>
+
+        <div class="parking" id="parking"></div>
+
+
+        <!-- BOOKING FORM -->
+
+        <div class="box">
+
+            <h2>Book Parking</h2>
+
+            <input type="text" id="vehicleNo"
+                   placeholder="Vehicle Number">
+
+            <select id="slotSelect">
+                <option value="">Select Parking Slot</option>
+            </select>
+
+            <button onclick="bookSlot()">Book Slot</button>
+
+            <p id="message"></p>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button onclick="logout()"
+                style="background:#dc2626">
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- ABOUT US -->
+
+            <div>
+                <h3>ParkSmart</h3>
+
+                <p>
+                    Smart Parking Management System helps users
+                    find and book parking spaces easily.
+                    Making parking simple and convenient.
+                </p>
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div>
+                <h3>Quick Links</h3>
+
+                <a href="#" onclick="showLogin(); return false;">
+                    Home
+                </a>
+
+                <a href="#" onclick="showLogin(); return false;">
+                    Login
+                </a>
+
+                <a href="#" onclick="showRegister(); return false;">
+                    Register
+                </a>
+
+                <a href="#services">
+                    Our Services
+                </a>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div id="services">
+
+                <h3>Our Services</h3>
+
+                <a href="#services">Parking Slot Booking</a>
+
+                <a href="#services">Slot Availability</a>
+
+                <a href="#services">Vehicle Management</a>
+
+                <a href="#services">Parking Monitoring</a>
+
+            </div>
+
+
+            <!-- CONTACT US -->
+
+            <div>
+
+                <h3>Contact Us</h3>
+
+                <p>Email: support@parksmart.com</p>
+
+                <p>Phone: +91 9876543210</p>
+
+                <p>Location: Bengaluru, Karnataka</p>
+
+                <a href="mailto:support@parksmart.com">
+                    Send us an Email
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>© 2026 ParkSmart. All Rights Reserved.</p>
+
+            <p>Smart Parking Management System | Student Project</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Parking slots
+        let slots = [
+            false, false, false, false,
+            false, false, false, false
+        ];
+
+
+        // User details
+        let registeredUser = "";
+        let registeredPassword = "";
+        let currentVehicle = "";
+
+
+        // Show registration page
+        function showRegister() {
+
+            document.getElementById("login")
+                .classList.add("hidden");
+
+            document.getElementById("register")
+                .classList.remove("hidden");
+
+        }
+
+
+        // Show login page
+        function showLogin() {
+
+            document.getElementById("register")
+                .classList.add("hidden");
+
+            document.getElementById("login")
+                .classList.remove("hidden");
+
+        }
+
+
+        // Register user
+        function registerUser() {
+
+            let name = document.getElementById("name").value;
+
+            registeredUser =
+                document.getElementById("newUser").value;
+
+            registeredPassword =
+                document.getElementById("newPass").value;
+
+            currentVehicle =
+                document.getElementById("vehicle").value;
+
+            if (name == "" || registeredUser == "" ||
+                registeredPassword == "" || currentVehicle == "") {
+
+                document.getElementById("registerMsg").innerHTML =
+                    "Please fill all details";
+
+                return;
+
+            }
+
+            document.getElementById("registerMsg").innerHTML =
+                "Registration Successful!";
+
+            setTimeout(showLogin, 1000);
+
+        }
+
+
+        // Login user
+        function loginUser() {
+
+            let user =
+                document.getElementById("username").value;
+
+            let pass =
+                document.getElementById("password").value;
+
+            if (user == registeredUser &&
+                pass == registeredPassword &&
+                registeredUser != "") {
+
+                document.getElementById("login")
+                    .classList.add("hidden");
+
+                document.getElementById("dashboard")
+                    .classList.remove("hidden");
+
+                displaySlots();
+
+            } else {
+
+                document.getElementById("loginMsg").innerHTML =
+                    "Invalid username or password";
+
+            }
+
+        }
+
+
+        // Display parking slots
+        function displaySlots() {
+
+            let parking =
+                document.getElementById("parking");
+
+            let select =
+                document.getElementById("slotSelect");
+
+            parking.innerHTML = "";
+
+            select.innerHTML =
+                '<option value="">Select Parking Slot</option>';
+
+            for (let i = 0; i < slots.length; i++) {
+
+                let div = document.createElement("div");
+
+                if (slots[i] == false) {
+
+                    div.className = "slot available";
+
+                    div.innerHTML =
+                        "P" + (i + 1) + "<br>Available";
+
+                    let option =
+                        document.createElement("option");
+
+                    option.value = i;
+
+                    option.text = "P" + (i + 1);
+
+                    select.appendChild(option);
+
+                } else {
+
+                    div.className = "slot occupied";
+
+                    div.innerHTML =
+                        "P" + (i + 1) + "<br>Occupied";
+
+                    // Release button
+                    let button =
+                        document.createElement("button");
+
+                    button.innerHTML = "Release";
+
+                    button.className = "release-btn";
+
+                    button.onclick = function() {
+                        releaseSlot(i);
+                    };
+
+                    div.appendChild(button);
+
+                }
+
+                parking.appendChild(div);
+
+            }
+
+            updateStats();
+
+        }
+
+
+        // Update statistics
+        function updateStats() {
+
+            let count = 0;
+
+            for (let i = 0; i < slots.length; i++) {
+
+                if (slots[i] == true) {
+                    count++;
+                }
+
+            }
+
+            document.getElementById("total").innerHTML =
+                slots.length;
+
+            document.getElementById("occupied").innerHTML =
+                count;
+
+            document.getElementById("available").innerHTML =
+                slots.length - count;
+
+        }
+
+
+        // Book parking slot
+        function bookSlot() {
+
+            let vehicle =
+                document.getElementById("vehicleNo").value;
+
+            let slot =
+                document.getElementById("slotSelect").value;
+
+            if (vehicle == "" || slot == "") {
+
+                document.getElementById("message").innerHTML =
+                    "Enter vehicle number and select a slot";
+
+                return;
+
+            }
+
+            if (slots[slot] == false) {
+
+                slots[slot] = true;
+
+                document.getElementById("message").innerHTML =
+                    "Parking Slot Booked Successfully!";
+
+                document.getElementById("vehicleNo").value = "";
+
+                displaySlots();
+
+            } else {
+
+                document.getElementById("message").innerHTML =
+                    "Slot is already occupied";
+
+            }
+
+        }
+
+
+        // Release parking slot
+        function releaseSlot(index) {
+
+            slots[index] = false;
+
+            displaySlots();
+
+            document.getElementById("message").innerHTML =
+                "Parking Slot Released Successfully!";
+
+        }
+
+
+        // Logout
+        function logout() {
+
+            document.getElementById("dashboard")
+                .classList.add("hidden");
+
+            document.getElementById("login")
+                .classList.remove("hidden");
+
+            document.getElementById("username").value = "";
+
+            document.getElementById("password").value = "";
+
+            document.getElementById("loginMsg").innerHTML = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
