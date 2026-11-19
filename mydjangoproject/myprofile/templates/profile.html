@@ -1,0 +1,479 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chandan N - Computer Science Engineering Student, Python and IoT Developer">
+    <title>Chandan N | Developer Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'myprofile/css/style.css' %}">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<header class="navbar">
+    <a href="#home" class="logo">CN<span>.</span></a>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#awards" class="nav-link">Awards</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">Let's Talk <span>↗</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <span></span><span></span>
+    </button>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero section" id="home">
+    <div class="hero-grid"></div>
+
+    <div class="hero-content reveal">
+        <div class="availability">
+            <span class="pulse-dot"></span>
+            AVAILABLE FOR OPPORTUNITIES
+        </div>
+
+        <p class="eyebrow">HELLO, I'M</p>
+
+        <h1>Chandan <span class="accent">N.</span></h1>
+
+        <h2 class="hero-role">
+            I build <span id="typingText">digital experiences.</span>
+            <span class="typing-cursor">|</span>
+        </h2>
+
+        <p class="hero-description">
+            Computer Science Engineering student passionate about
+            software development, AI/ML, IoT and building practical
+            applications that solve real-world problems.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="button button-primary">
+                Explore My Work <span>↗</span>
+            </a>
+            <a href="#contact" class="button button-outline">
+                Get In Touch
+            </a>
+        </div>
+
+        <div class="hero-socials">
+            <a href="https://github.com/chandan1306" target="_blank" rel="noopener">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/in/chandan67" target="_blank" rel="noopener">LINKEDIN ↗</a>
+            <a href="mailto:chandanchandanbn49@gmail.com">EMAIL ↗</a>
+        </div>
+    </div>
+
+    <div class="hero-visual reveal">
+        <div class="visual-glow"></div>
+
+        <div class="cube-scene">
+            <div class="cube">
+                <div class="cube-face front">CN</div>
+                <div class="cube-face back">CODE</div>
+                <div class="cube-face right">PY</div>
+                <div class="cube-face left">AI</div>
+                <div class="cube-face top">DEV</div>
+                <div class="cube-face bottom">IoT</div>
+            </div>
+        </div>
+
+        <div class="floating-card card-top">
+            <span class="mini-dot"></span>
+            <div>
+                <strong>Developer</strong>
+                <small>Always learning</small>
+            </div>
+        </div>
+
+        <div class="floating-card card-bottom">
+            <span class="card-icon">⌘</span>
+            <div>
+                <strong>Problem Solver</strong>
+                <small>Build · Learn · Improve</small>
+            </div>
+        </div>
+
+        <div class="visual-caption">CREATIVE MIND / TECH ENTHUSIAST</div>
+    </div>
+
+    <a href="#about" class="scroll-indicator">
+        <span></span> SCROLL TO EXPLORE
+    </a>
+</section>
+
+<!-- About -->
+<section class="section about-section" id="about">
+    <div class="section-heading reveal">
+        <p class="section-label">01 / ABOUT ME</p>
+        <h2>Curious mind.<br><span class="accent">Builder's mindset.</span></h2>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-main glass-card reveal">
+            <div class="initials-large">CN<span>.</span></div>
+            <p class="about-text">
+                I'm <strong>Chandan N</strong>, a Computer Science Engineering
+                student at Gopalan College of Engineering and Management,
+                Bengaluru.
+            </p>
+            <p class="about-text">
+                I enjoy turning ideas into working applications. My interests
+                include Python development, Internet of Things, Artificial
+                Intelligence, Machine Learning and scalable software design.
+            </p>
+            <p class="about-text">
+                I believe in learning by building, experimenting with
+                technology and continuously improving my skills.
+            </p>
+
+            <div class="location-line">
+                <span class="location-dot"></span>
+                BENGALURU, INDIA
+            </div>
+        </div>
+
+        <div class="about-side">
+            <div class="stat-card glass-card reveal">
+                <span class="stat-number">02</span>
+                <span class="stat-label">FEATURED PROJECTS</span>
+            </div>
+            <div class="stat-card glass-card reveal">
+                <span class="stat-number">05</span>
+                <span class="stat-label">LANGUAGES KNOWN</span>
+            </div>
+            <div class="stat-card glass-card reveal">
+                <span class="stat-number">01</span>
+                <span class="stat-label">FIRST PLACE AWARD</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="skills-area reveal">
+        <p class="section-label">MY TOOLKIT</p>
+        <div class="skill-tags">
+            <span>Python</span><span>C</span><span>Java</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            <span>MySQL</span><span>IoT</span><span>Artificial Intelligence</span>
+            <span>Machine Learning</span><span>DSA</span><span>OOP</span>
+            <span>Git</span><span>GitHub</span><span>VS Code</span>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section class="section education-section" id="education">
+    <div class="section-heading reveal">
+        <p class="section-label">02 / EDUCATION</p>
+        <h2>The journey of<br><span class="accent">continuous learning.</span></h2>
+    </div>
+
+    <div class="timeline">
+        <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-top">
+                    <span class="timeline-date">2024 — 2028</span>
+                    <span class="current-tag">IN PROGRESS</span>
+                </div>
+                <h3>Bachelor of Engineering</h3>
+                <h4>Computer Science Engineering</h4>
+                <p>Gopalan College of Engineering and Management, Bengaluru</p>
+                <div class="result">CGPA <strong>7.00</strong></div>
+            </div>
+        </article>
+
+        <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-top">
+                    <span class="timeline-date">PRE-UNIVERSITY</span>
+                </div>
+                <h3>PUC</h3>
+                <h4>Sri Maruthi PU College</h4>
+                <div class="result">Percentage <strong>90.66%</strong></div>
+            </div>
+        </article>
+
+        <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-top">
+                    <span class="timeline-date">SCHOOL EDUCATION</span>
+                </div>
+                <h3>SSLC</h3>
+                <h4>Sri Vagdevi Vidyanikethana School</h4>
+                <div class="result">Percentage <strong>93.12%</strong></div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="section projects-section" id="projects">
+    <div class="section-heading reveal">
+        <p class="section-label">03 / SELECTED WORK</p>
+        <h2>Ideas turned into<br><span class="accent">real projects.</span></h2>
+        <p class="section-description">
+            A selection of projects where I explore technology,
+            solve problems and bring ideas to life.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        <article class="project-card glass-card reveal">
+            <div class="project-image project-image-bin">
+                <div class="image-overlay"></div>
+                <div class="project-art">
+                    <span class="art-symbol">♻</span>
+                    <span class="art-label">SMART WASTE / IoT</span>
+                </div>
+                <span class="project-index">01</span>
+            </div>
+
+            <div class="project-content">
+                <div class="project-category">IoT · WEB DEVELOPMENT</div>
+                <h3>Smart Bin Management System</h3>
+                <p>
+                    An IoT-based waste management solution designed for
+                    real-time bin fill-level monitoring, live status updates
+                    and more efficient waste collection.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span><span>IoT</span><span>Sensors</span>
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+                <a class="project-link"
+                   href="https://github.com/Chandan1306/Smart-Waste-Sorter.2k26.git"
+                   target="_blank" rel="noopener">
+                    VIEW SOURCE CODE <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="project-card glass-card reveal">
+            <div class="project-image project-image-monitor">
+                <div class="image-overlay"></div>
+                <div class="dashboard-art">
+                    <div class="dashboard-top">
+                        <span>LAB MONITOR</span><span class="dashboard-live">● LIVE</span>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div><strong>01</strong><small>ACTIVE SESSION</small></div>
+                        <div><strong>PC</strong><small>MONITORING</small></div>
+                    </div>
+                    <div class="dashboard-lines">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <span class="project-index">02</span>
+            </div>
+
+            <div class="project-content">
+                <div class="project-category">PYTHON · SYSTEM DEVELOPMENT</div>
+                <h3>Control Activity Monitor</h3>
+                <p>
+                    A real-time computer lab monitoring system. A lightweight
+                    cross-platform agent reports student PC activity to a
+                    central instructor dashboard, with app policies and
+                    compliance monitoring.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span><span>Cross-platform</span>
+                    <span>API</span><span>DOM Diffing</span><span>Policy Engine</span>
+                </div>
+                <a class="project-link"
+                   href="https://github.com/Chandan1306/Control-activity-monitor.git"
+                   target="_blank" rel="noopener">
+                    VIEW SOURCE CODE <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Awards -->
+<section class="section awards-section" id="awards">
+    <div class="section-heading reveal">
+        <p class="section-label">04 / RECOGNITION</p>
+        <h2>Milestones that<br><span class="accent">keep me moving.</span></h2>
+    </div>
+
+    <div class="award-card glass-card reveal">
+        <div class="award-icon">✳</div>
+        <div class="award-info">
+            <span class="award-date">DECEMBER 2025</span>
+            <h3>1st Place — Mini Project Exhibition</h3>
+            <p>
+                3rd Semester Mini Project Exhibition,
+                Gopalan College of Engineering and Management.
+            </p>
+        </div>
+        <span class="award-number">01</span>
+    </div>
+
+    <div class="certification-heading reveal">
+        <p class="section-label">CERTIFICATIONS</p>
+    </div>
+
+    <div class="certificate-grid">
+        <div class="certificate-card glass-card reveal">
+            <span class="certificate-icon">✧</span>
+            <div>
+                <h3>Algorithmic Toolbox</h3>
+                <p>University of California San Diego</p>
+                <span>May 2026</span>
+            </div>
+        </div>
+
+        <div class="certificate-card glass-card reveal">
+            <span class="certificate-icon">⌘</span>
+            <div>
+                <h3>Java Programming for Beginners</h3>
+                <p>IBM</p>
+                <span>December 2025</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Beyond code -->
+<section class="section beyond-section" id="beyond">
+    <div class="section-heading reveal">
+        <p class="section-label">05 / BEYOND CODE</p>
+        <h2>More than just<br><span class="accent">technology.</span></h2>
+    </div>
+
+    <div class="beyond-grid">
+        <div class="beyond-card glass-card reveal">
+            <span class="beyond-icon">♫</span>
+            <h3>Music</h3>
+            <p>Music aficionado</p>
+        </div>
+        <div class="beyond-card glass-card reveal">
+            <span class="beyond-icon">🏏</span>
+            <h3>Cricket</h3>
+            <p>Cricket enthusiast</p>
+        </div>
+        <div class="beyond-card glass-card reveal">
+            <span class="beyond-icon">⌨</span>
+            <h3>Gaming</h3>
+            <p>Avid gamer</p>
+        </div>
+        <div class="beyond-card glass-card reveal">
+            <span class="beyond-icon">◎</span>
+            <h3>Hackathons</h3>
+            <p>Active participant in technical events</p>
+        </div>
+    </div>
+
+    <div class="languages reveal">
+        <span class="section-label">LANGUAGES I SPEAK</span>
+        <p>Kannada <i>·</i> English <i>·</i> Hindi <i>·</i> Tamil <i>·</i> Telugu</p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+    <div class="contact-glow"></div>
+
+    <div class="section-heading reveal">
+        <p class="section-label">06 / CONTACT</p>
+        <h2>Have an idea?<br><span class="accent">Let's connect.</span></h2>
+        <p class="section-description">
+            I'm always open to discussing technology, projects,
+            collaborations and new opportunities.
+        </p>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info reveal">
+            <div class="contact-item">
+                <span class="contact-icon">✉</span>
+                <div>
+                    <small>EMAIL ME</small>
+                    <a href="mailto:chandanchandanbn49@gmail.com">
+                        chandanchandanbn49@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">⌘</span>
+                <div>
+                    <small>GITHUB</small>
+                    <a href="https://github.com/chandan1306" target="_blank" rel="noopener">
+                        github.com/chandan1306
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">in</span>
+                <div>
+                    <small>LINKEDIN</small>
+                    <a href="https://www.linkedin.com/in/chandan67" target="_blank" rel="noopener">
+                        linkedin.com/in/chandan67
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-note">
+                <span class="pulse-dot"></span>
+                OPEN TO LEARNING & COLLABORATION
+            </div>
+        </div>
+
+        <form class="contact-form glass-card reveal" id="contactForm">
+            <label for="visitorName">YOUR NAME</label>
+            <input type="text" id="visitorName" placeholder="Enter your name" required>
+
+            <label for="visitorEmail">YOUR EMAIL</label>
+            <input type="email" id="visitorEmail" placeholder="Enter your email" required>
+
+            <label for="visitorSubject">SUBJECT</label>
+            <input type="text" id="visitorSubject" placeholder="What is this about?" required>
+
+            <label for="visitorMessage">MESSAGE</label>
+            <textarea id="visitorMessage" rows="5" placeholder="Tell me about your idea..." required></textarea>
+
+            <button type="submit" class="button button-primary submit-button">
+                Send Message <span>↗</span>
+            </button>
+            <p class="form-note">This form opens your email application to send the message.</p>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <a href="#home" class="logo">CN<span>.</span></a>
+    <p>Designed & built by <strong>Chandan N</strong></p>
+    <p class="footer-copy">© <span id="currentYear"></span> CHANDAN N. ALL RIGHTS RESERVED.</p>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+</footer>
+
+<script src="{% static 'myprofile/js/script.js' %}"></script>
+</body>
+</html>
